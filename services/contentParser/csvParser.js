@@ -17,9 +17,9 @@ function csvToJson(text) {
 
     // Try to convert the format of the values
     cast: (value, context) => {
-      console.log('test')
+      console.log('test', value)
       if (value === "") return null;
-      else if (context.column == 'size') value = value.toString();
+      else if (context.column == 'size') return value.toString();
       else if (context.column !== 'size' && textIsNumber(value)) return textToNumber(value);
       else if (textIsBoolean(value)) return textToBoolean(value);
       else if (textIsObject(value)) return textToObject(value);
